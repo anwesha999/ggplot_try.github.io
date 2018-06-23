@@ -1,0 +1,31 @@
+---
+title: "index"
+author: "anwesha"
+date: "June 24, 2018"
+output: html_document
+---
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r}
+
+library(plotly)
+plot_ly(mtcars, x = ~wt, y = ~mpg, type = "scatter", color = ~factor(cyl), size = ~hp)
+```
+
+## Plot with dataset
+```{r}
+data <- read.csv("hospital-data.csv")
+library(plotly)
+plot_ly(data, x = ~City, y = ~County, type = "scatter", color = "red")
+plot_ly(data, x = ~County, type = "histogram")
+```
+
+## Magic of Plotly Continues
+```{r}
+terrain1 <- matrix(rnorm(100*100), nrow = 100, ncol = 100)
+plot_ly(z = ~data$City, type = "heatmap")
+```

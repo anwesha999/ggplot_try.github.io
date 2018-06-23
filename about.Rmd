@@ -1,0 +1,23 @@
+---
+title: "about"
+author: "anwesha"
+date: "June 24, 2018"
+output: html_document
+---
+
+## Magic of Plotly Continues
+```{r}
+data(mtcars)
+library(ggplot2)
+library(plotly)
+
+mtcars$cyl <- as.factor(mtcars$cyl)
+mtcars$am <- factor(mtcars$am, labels = c("Manual", "Automatic"))
+g <- ggplot(mtcars, aes(mpg, fill = as.factor(cyl)))+
+  geom_histogram(binwidth = 1) + 
+  ggtitle("Histogram of miles per gallon from MTCARS") +
+  facet_wrap(~am) 
+ggplotly(g)
+```
+
+
